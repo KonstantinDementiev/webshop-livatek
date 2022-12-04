@@ -11,7 +11,8 @@ import java.util.Arrays;
 public enum ProductType {
 
     ONLINE("online"),
-    BOOK("book");
+    BOOK("book"),
+    ALL("all");
 
     private static final String INVALID_TYPE_MESSAGE = "Input ProductType [%s] does not exist";
     private final String description;

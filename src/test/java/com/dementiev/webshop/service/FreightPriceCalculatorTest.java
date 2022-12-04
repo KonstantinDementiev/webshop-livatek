@@ -7,13 +7,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class FreightPriceCalculatorBookImplTest {
+class FreightPriceCalculatorTest {
 
     private FreightPriceCalculator freightPriceCalculator;
 
     @BeforeEach
     void setUp() {
-        freightPriceCalculator = new FreightPriceCalculatorBookImpl();
+        freightPriceCalculator = new FreightPriceCalculator();
     }
 
     @Test
@@ -23,12 +23,21 @@ class FreightPriceCalculatorBookImplTest {
                 () -> freightPriceCalculator.calculate(null),
                 "Expected calculate() to throw exception, but it didn't"
         );
-        assertEquals("Input ProductAmount is NULL", thrown.getMessage());
+        assertEquals("Input product amount is NULL", thrown.getMessage());
+    }
+
+    @Test
+    void calculate_when_inputIsNegative_then_throwCustomException() {
+        InvalidInputProductAmountException thrown = assertThrows(
+                InvalidInputProductAmountException.class,
+                () -> freightPriceCalculator.calculate(-1),
+                "Expected calculate() to throw exception, but it didn't"
+        );
+        assertEquals("Input product amount can not be NEGATIVE", thrown.getMessage());
     }
 
     @Test
     void calculate_when_inputIsNotNull_then_returnValue() {
-        assertEquals(0.0, freightPriceCalculator.calculate(-1));
         assertEquals(0.0, freightPriceCalculator.calculate(0));
         assertEquals(50.0, freightPriceCalculator.calculate(1));
         assertEquals(50.0, freightPriceCalculator.calculate(10));

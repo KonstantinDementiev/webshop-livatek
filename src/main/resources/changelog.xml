@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="KonstantinDementiev">
+        <createTable tableName="country">
+            <column name="id" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="code" type="varchar"/>
+            <column name="area" type="varchar"/>
+            <column name="type" type="varchar"/>
+            <column name="vat" type="real"/>
+        </createTable>
+
+        <insert tableName="country">
+            <column name="code" value="DK"/>
+            <column name="area" value="Scandinavia"/>
+            <column name="type" value="all"/>
+            <column name="vat" value="25.0"/>
+        </insert>
+        <insert tableName="country">
+            <column name="code" value="NO"/>
+            <column name="area" value="Scandinavia"/>
+            <column name="type" value="all"/>
+            <column name="vat" value="25.0"/>
+        </insert>
+        <insert tableName="country">
+            <column name="code" value="SE"/>
+            <column name="area" value="Scandinavia"/>
+            <column name="type" value="all"/>
+            <column name="vat" value="25.0"/>
+        </insert>
+        <insert tableName="country">
+            <column name="code" value="GB"/>
+            <column name="area" value="Great Britain"/>
+            <column name="type" value="all"/>
+            <column name="vat" value="20.0"/>
+        </insert>
+        <insert tableName="country">
+            <column name="code" value="DE"/>
+            <column name="area" value="Germany"/>
+            <column name="type" value="online"/>
+            <column name="vat" value="19.0"/>
+        </insert>
+        <insert tableName="country">
+            <column name="code" value="DE"/>
+            <column name="area" value="Germany"/>
+            <column name="type" value="book"/>
+            <column name="vat" value="12.0"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2" author="KonstantinDementiev">
+        <createTable tableName="currency">
+            <column name="id" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="code" type="varchar"/>
+            <column name="rate" type="real"/>
+        </createTable>
+
+        <insert tableName="currency">
+            <column name="code" value="DKK"/>
+            <column name="rate" value="100.0"/>
+        </insert>
+        <insert tableName="currency">
+            <column name="code" value="NOK"/>
+            <column name="rate" value="73.50"/>
+        </insert>
+        <insert tableName="currency">
+            <column name="code" value="SEK"/>
+            <column name="rate" value="70.23"/>
+        </insert>
+        <insert tableName="currency">
+            <column name="code" value="GBP"/>
+            <column name="rate" value="891.07"/>
+        </insert>
+        <insert tableName="currency">
+            <column name="code" value="EUR"/>
+            <column name="rate" value="743.93"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

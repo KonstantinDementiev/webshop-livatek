@@ -1,31 +1,29 @@
 package com.dementiev.webshop.service;
 
-import com.dementiev.webshop.entity.Order;
-import com.dementiev.webshop.enums.Currency;
+import com.dementiev.webshop.dto.OrderDto;
 import com.dementiev.webshop.enums.ProductType;
-import lombok.RequiredArgsConstructor;
+import com.dementiev.webshop.validator.InputProductPriceValidator;
+import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-@RequiredArgsConstructor
+@Service
+@NoArgsConstructor
 public class OrderPriceCalculator {
 
-    private final FreightPriceCalculator freightPriceCalculator;
-    private final PriceOutputFormatter priceOutputFormatter;
+    @Autowired
+    private FreightPriceCalculator freightPriceCalculator;
 
-    public String calculate(final Order order) {
-        double freightPrice = getFreightPrice(order);
-        double orderPrice = (order.getAmount() * order.getPrice() + freightPrice);
-        return priceOutputFormatter.convertPriceToDecimalFormat(orderPrice) + " " + getCurrency();
+    public double calculate(final OrderDto orderDto) {
+        InputProductPriceValidator.validate(orderDto.price());
+        double freightPrice = getFreightPrice(orderDto);
+        return (orderDto.amount() * orderDto.price() + freightPrice);
     }
 
-    private String getCurrency() {
-        return Currency.DEFAULT.getDescription();
-    }
-
-    private double getFreightPrice(Order order) {
-        if (order.getType() == ProductType.BOOK) {
-            return freightPriceCalculator.calculate(order.getAmount());
+    private double getFreightPrice(OrderDto orderDto) {
+        if (orderDto.type() == ProductType.BOOK) {
+            return freightPriceCalculator.calculate(orderDto.amount());
         }
         return 0.0;
     }
-
 }
