@@ -1,4 +1,4 @@
-package com.dementiev.webshop.service;
+package com.dementiev.webshop.service.order;
 
 import com.dementiev.webshop.dto.OrderDto;
 import com.dementiev.webshop.entity.Country;
@@ -9,8 +9,10 @@ import com.dementiev.webshop.exception.InvalidInputProductAmountException;
 import com.dementiev.webshop.exception.InvalidInputProductPriceException;
 import com.dementiev.webshop.repository.CountryRepository;
 import com.dementiev.webshop.repository.CurrencyRepository;
-import com.dementiev.webshop.service.entity.CountryService;
-import com.dementiev.webshop.service.entity.CurrencyService;
+import com.dementiev.webshop.service.entity.CountryServiceImpl;
+import com.dementiev.webshop.service.entity.CurrencyServiceImpl;
+import com.dementiev.webshop.service.freight.FreightPriceCalculatorImpl;
+import com.dementiev.webshop.service.order.OrderWithCustomParametersPriceCalculator;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,9 +30,9 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @ContextConfiguration(classes = {
-        CurrencyService.class,
-        CountryService.class,
-        FreightPriceCalculator.class,
+        CurrencyServiceImpl.class,
+        CountryServiceImpl.class,
+        FreightPriceCalculatorImpl.class,
         OrderWithCustomParametersPriceCalculator.class
 })
 class OrderWithCustomParametersPriceCalculatorIT {

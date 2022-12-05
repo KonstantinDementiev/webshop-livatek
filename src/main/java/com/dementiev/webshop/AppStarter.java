@@ -4,9 +4,9 @@ import com.dementiev.webshop.dto.OrderDto;
 import com.dementiev.webshop.enums.InputCustomParams;
 import com.dementiev.webshop.enums.ProductType;
 import com.dementiev.webshop.exception.InvalidConsoleInputException;
-import com.dementiev.webshop.service.CustomParamsParser;
-import com.dementiev.webshop.service.OrderWithCustomParametersPriceCalculator;
-import com.dementiev.webshop.service.PriceOutputFormatter;
+import com.dementiev.webshop.service.customparams.CustomParamsParser;
+import com.dementiev.webshop.service.formatter.PriceOutputFormatter;
+import com.dementiev.webshop.service.order.OrderPriceCalculator;
 import com.dementiev.webshop.utils.Utils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +23,7 @@ public class AppStarter implements CommandLineRunner {
 
     private static final Integer BASE_ORDER_PARAMS_NUMBER = 3;
     private final CustomParamsParser customParamsParser;
-    private final OrderWithCustomParametersPriceCalculator orderPriceCalculator;
+    private final OrderPriceCalculator orderPriceCalculator;
     private final PriceOutputFormatter priceOutputFormatter;
     private String outputCurrencyForPrint = "DKK";
 

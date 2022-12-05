@@ -1,6 +1,7 @@
-package com.dementiev.webshop.service;
+package com.dementiev.webshop.service.freight;
 
 import com.dementiev.webshop.exception.InvalidInputProductAmountException;
+import com.dementiev.webshop.service.freight.FreightPriceCalculatorImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,11 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class FreightPriceCalculatorTest {
 
-    private FreightPriceCalculator freightPriceCalculator;
+    private FreightPriceCalculatorImpl freightPriceCalculator;
 
     @BeforeEach
     void setUp() {
-        freightPriceCalculator = new FreightPriceCalculator();
+        freightPriceCalculator = new FreightPriceCalculatorImpl();
     }
 
     @Test

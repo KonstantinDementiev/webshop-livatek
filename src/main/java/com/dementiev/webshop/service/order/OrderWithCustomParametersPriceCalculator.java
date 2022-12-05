@@ -1,4 +1,4 @@
-package com.dementiev.webshop.service;
+package com.dementiev.webshop.service.order;
 
 import com.dementiev.webshop.dto.OrderDto;
 import com.dementiev.webshop.enums.InputCustomParams;
@@ -11,7 +11,7 @@ import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
-public class OrderWithCustomParametersPriceCalculator extends OrderPriceCalculator {
+public class OrderWithCustomParametersPriceCalculator extends OrderPriceCalculatorImpl implements OrderPriceCalculator{
 
     private static final Double ONE_HUNDRED_PERCENT = 100.0;
     private final CurrencyService currencyService;

@@ -1,11 +1,11 @@
-package com.dementiev.webshop.service;
+package com.dementiev.webshop.service.freight;
 
 import com.dementiev.webshop.enums.FreightRate;
 import com.dementiev.webshop.validator.InputProductAmountValidator;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FreightPriceCalculator {
+public class FreightPriceCalculatorImpl implements FreightPriceCalculator{
 
     public Double calculate(final Integer productAmount) {
         InputProductAmountValidator.validate(productAmount);

@@ -1,4 +1,4 @@
-package com.dementiev.webshop.service;
+package com.dementiev.webshop.service.customparams;
 
 import com.dementiev.webshop.enums.InputCustomParams;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Objects;
 
 @Service
-public class CustomParamsParser {
+public class CustomParamsParserImpl implements CustomParamsParser{
 
     private static final String KEY_VALUE_DELIMITER = "=";
 

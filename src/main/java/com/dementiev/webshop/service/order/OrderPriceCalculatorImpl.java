@@ -1,7 +1,8 @@
-package com.dementiev.webshop.service;
+package com.dementiev.webshop.service.order;
 
 import com.dementiev.webshop.dto.OrderDto;
 import com.dementiev.webshop.enums.ProductType;
+import com.dementiev.webshop.service.freight.FreightPriceCalculator;
 import com.dementiev.webshop.validator.InputProductPriceValidator;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @NoArgsConstructor
-public class OrderPriceCalculator {
+public class OrderPriceCalculatorImpl {
 
     @Autowired
     private FreightPriceCalculator freightPriceCalculator;

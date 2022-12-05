@@ -1,6 +1,7 @@
-package com.dementiev.webshop.service;
+package com.dementiev.webshop.service.customparams;
 
 import com.dementiev.webshop.enums.InputCustomParams;
+import com.dementiev.webshop.service.customparams.CustomParamsParserImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,11 +14,11 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-@ContextConfiguration(classes = {CustomParamsParser.class})
+@ContextConfiguration(classes = {CustomParamsParserImpl.class})
 class CustomParamsParserTest {
 
     @Autowired
-    private CustomParamsParser parser;
+    private CustomParamsParserImpl parser;
 
     @Test
     void getCustomParamsFromArgs_when_inputStringArrayIsNull_then_returnDefaultMap() {

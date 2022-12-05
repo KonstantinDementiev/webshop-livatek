@@ -1,4 +1,4 @@
-package com.dementiev.webshop.service;
+package com.dementiev.webshop.service.formatter;
 
 import org.springframework.stereotype.Service;
 
